@@ -1,10 +1,12 @@
+create database Shipping;
 use Shipping;
-SELECT Product_Name, Price
-FROM Shipping_Table
-WHERE Price = (
-    SELECT min(Price)
-    FROM Shipping_Table
+create table Shipping_Table(
+Product_Name varchar(50) not null,
+Category varchar(100) not null,
+Price float 
 );
+insert into Shipping_Table values('Laptop','Electronics',50000),('Churidhar','Clothing',5000),('Storage Container','Kitchen Appliances',2000),('Iphone','Electronics',100000),('Spoons','Kitchen Appliances',1000),('Frocks','Clothing',2000),('Jeans','Clothing',700),('T-shirt','Clothing',5000),('Slippers','FootWear',1000),('Cleaning Towel','Kitchen Appliances',900),('Earpods','Electronics',900),('Fridge','Electronics',40000),('Fridge Storage Container','Kitchen Appliances',1000),('Shoes','Footwear',500),('Washing Machine','Electronics',50000);
+select*from Shipping_Table;
 SELECT s1.Product_Name, s1.Category, s1.Price
 FROM Shipping_Table s1
 WHERE s1.Price > (
