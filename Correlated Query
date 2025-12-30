@@ -1,0 +1,14 @@
+use Shipping;
+SELECT Product_Name, Price
+FROM Shipping_Table
+WHERE Price = (
+    SELECT min(Price)
+    FROM Shipping_Table
+);
+SELECT s1.Product_Name, s1.Category, s1.Price
+FROM Shipping_Table s1
+WHERE s1.Price > (
+    SELECT AVG(s2.Price)
+    FROM Shipping_Table s2
+    WHERE s1.Category = s2.Category
+);
